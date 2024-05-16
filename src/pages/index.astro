@@ -4,55 +4,58 @@ import Layout from '../layouts/Layout.astro';
 
 <Layout title="Fractaline Forest">
   <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
+  
   <main>
     <h1 class="cursive">❖ Fractaline Forest ❖</h1>
     <h2 class="cursive">An interactive story based on Farcaster.</h2>
 
     <section id="hero">
       <img src="/images/Cover-Image.png" alt="Fractaline Forest Cover" class="background-image">
-      <section id="subscribe">
+      <div id="subscribe">
         <button>Subscribe Now</button>
-      </section>
+      </div>
       <h4>Get unlimited access to all experiences, monthly airdrops, and behind-the-scenes discussions</h4>
     </section>
 
+    <h1 class="cursive">❖ About ❖</h1>
+    <h2 class="cursive">Fractaline Forest is an intricate allegory that weaves together philosophical inquiry and science-fiction to create an immersive interactive narrative. The forest itself represents the complex web of social consciousness and the quest for unity and understanding. At the heart of this narrative are four archetypal characters, each embodying distinct aspects of the human experience and guiding the player towards self-discovery and collective harmony.</h2>
+
     <section class="pattern-section">
-      <img src="/images/Fractaline-Pattern.png" alt="Fractaline Forest Pattern" class="pattern-image">
-    </section>
+		<img src="/images/Fractaline-Pattern.png" alt="Fractaline Forest Pattern" class="pattern-image">
+	  </section>
 
     <section id="characters">
-      <h2 class="cursive">Meet the Main Characters</h2>
+      <h1 class="cursive">❖ Meet the Main Characters ❖</h1>
       <div class="character">
         <img src="/images/vector.png" alt="Vector">
         <h3>Vector</h3>
-        <p>The adventurous wolf and forest guide.</p>
+        <h4>The adventurous wolf and guide.</h4>
       </div>
       <div class="character">
         <img src="images/thorn.png" alt="Thorn">
         <h3>Thorn</h3>
-        <p>The solemn guardian of the forest.</p>
+        <h4>The solemn guardian of the forest.</h4>
       </div>
       <div class="character">
         <img src="/images/sylvan.png" alt="Sylvan">
         <h3>Sylvan</h3>
-        <p>The oracle who remembers your path.</p>
+        <h4>The oracle who remembers your path.</h4>
       </div>
       <div class="character">
         <img src="/images/oran.png" alt="Oran">
         <h3>Oran</h3>
-        <p>The wise keeper of wisdom and rituals.</p>
+        <h4>The wise keeper of wisdom and rituals.</h4>
       </div>
-    </section>
-
-    <section id="subscribe">
-      <button>Subscribe Now</button>
     </section>
 
     <footer>
       <p>&copy; 2024 Fractaline Forest. All rights reserved.</p>
     </footer>
+
   </main>
 </Layout>
+
+
 
 
 <style>
@@ -82,6 +85,20 @@ header h1 {
 h1.cursive, h2.cursive {
   font-family: 'Jim Nightshade', cursive;
   text-align: center;
+}
+
+h1 {
+	font-size: 3em;
+	width: 80%; /* Make the h2 narrower */
+  	max-width: 700px; /* Optional: Set a max-width */
+  	margin: 35px auto; /* Center the h2 */
+}
+
+h2 {
+	font-size: 2em;
+	width: 80%; /* Make the h2 narrower */
+	max-width: 700px; /* Optional: Set a max-width */
+	margin: 0 auto; /* Center the h2 */
 }
 
 nav ul {
@@ -134,18 +151,19 @@ nav ul li a {
   height: auto; /* Maintain aspect ratio */
 }
 
-
 #hero h2 {
-  font-size: 1.75em;
-  margin: 0;
-  color: #2e3a47;
-}
-
-#hero h4 {
   font-size: 1.75em;
   font-weight: 200;
   margin: 0;
-  color: white;
+  color: #2e3a47;
+  max-width: 500px;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: 200;
+  margin: 0;
+  color:  #2e3a47;
 }
 
 #hero p {
@@ -161,7 +179,7 @@ section {
 #characters .character {
   display: inline-block;
   width: 200px;
-  margin: 20px;
+  margin: 10px;
   text-align: center;
 }
 
@@ -172,7 +190,7 @@ section {
 }
 
 #characters .character h3 {
-  font-size: 1.5em; /* Increase font size */
+  font-size: 2em; /* Increase font size */
   margin: 10px 0 5px 0;
 }
 
@@ -195,7 +213,7 @@ section {
 
 footer {
   background-color: #1C1C1C;
-  color: #E9E9DD;
+  color: #FFFFFF;
   text-align: center;
   padding: 20px 0;
 }
