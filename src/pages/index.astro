@@ -14,20 +14,25 @@ import Layout from '../layouts/Layout.astro';
       <div id="subscribe">
         <button>Subscribe Now</button>
       </div>
-      <h3>Get access to the story as it develops, monthly airdrops, and behind-the-scenes discussions</h3>
+      <h4>Get access to the story as it develops, monthly airdrops, and behind-the-scenes discussions</h4>
     </section>
 
-	<section class="about-section">
-		<h1 class="cursive">❖ About ❖</h1>
-		<h2 class="cursive">Fractaline Forest is an intricate allegory that weaves together philosophical inquiry and science-fiction to create an immersive, interactive narrative. The forest itself represents the complex web of social consciousness and the quest for unity and understanding. At the heart of this narrative are four archetypal characters, each embodying distinct aspects of the human experience and guiding the player towards self-discovery and collective harmony.</h2>
-	  </section>
-    
 	<section class="pattern-section">
 		<img src="/images/Fractaline-Pattern.png" alt="Fractaline Forest Pattern" class="pattern-image">
-	  </section>
+	  </section> 
 
+    <section class="about-section">
+      <h1 class="cursive">❖ About ❖</h1>
+      <h2 class="cursive">Fractaline Forest is an intricate allegory that weaves together philosophical inquiry and social network technology to create an immersive, interactive narrative. The forest itself represents the complex web of social consciousness and the quest for unity and understanding. At the heart of this narrative are four archetypal characters, each embodying distinct aspects of the human experience and guiding the player towards self-discovery and collective harmony.</h2>
+    </section>
+
+	<section class="tree-wolf-section">
+		<img src="/images/Tree-Wolf.png" alt="Tree Wolf" class="tree-wolf-image">
+	  </section> 
+
+    
+	<h1 class="cursive">❖ Meet the Main Characters ❖</h1>
     <section id="characters">
-      <h1 class="cursive">❖ Meet the Main Characters ❖</h1>
       <div class="character">
         <img src="/images/vector.png" alt="Vector">
         <h3>Vector</h3>
@@ -48,7 +53,7 @@ import Layout from '../layouts/Layout.astro';
         <h3>Oran</h3>
         <h4>The wise keeper of wisdom and rituals.</h4>
       </div>
-    </section>
+    </section> 
 
     <footer>
       <p>&copy; 2024 Fractaline Forest. All rights reserved.</p>
@@ -63,25 +68,13 @@ import Layout from '../layouts/Layout.astro';
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
 
+/* General styles */
 body {
   font-family: 'Jim Nightshade', cursive;
   background-color: #FFFFFF;
   color: #12010B;
-}
-
-header {
-  background-color: #12010B;
-  color: #2e3a47;
-  text-align: center;
-  padding: 20px 0;
-}
-
-header h1 {
   margin: 0;
-  font-size: 3em; /* Default size */
-  text-align: center;
-  align-items: center;
-  vertical-align: center;
+  padding: 0;
 }
 
 h1.cursive, h2.cursive {
@@ -90,26 +83,35 @@ h1.cursive, h2.cursive {
 }
 
 h1 {
-	font-size: 3em;
-	width: 80%; /* Make the h2 narrower */
-  	max-width: 700px; /* Optional: Set a max-width */
-  	margin: 35px auto; /* Center the h2 */
+  font-size: 3em;
+  width: 80%;
+  max-width: 700px;
+  margin: 35px auto;
 }
 
 h2 {
-	font-size: 2em;
-	width: 80%; /* Make the h2 narrower */
-	max-width: 700px; /* Optional: Set a max-width */
-	margin: 0 auto; /* Center the h2 */
+  font-size: 2em;
+  width: 80%;
+  max-width: 700px;
+  margin: 0 auto;
 }
 
 h3 {
-	font-size: 1.5em;
-	font-weight: 300;
-	width: 100%; /* Make the h2 narrower */
-	max-width: 700px; /* Optional: Set a max-width */
-	margin: 0 auto; /* Center the h2 */
-	color: white;
+  font-size: 1.5em;
+  font-weight: 300;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  color:  #12010B;
+}
+
+h4 {
+  font-size: 1.5em;
+  font-weight: 300;
+  width: 100%;
+  max-width: 700px;
+  margin: 0 auto;
+  color:  white;
 }
 
 nav ul {
@@ -130,16 +132,17 @@ nav ul li a {
   font-size: 1.2em;
 }
 
+/* Hero section */
 #hero {
   background: linear-gradient(
     to bottom,
-    #FFFFFF, /* Lighter shade from the image */
-    #3e4a57 /* Darker shade from the image */
+    #FFFFFF,
+    #3e4a57
   );
   text-align: center;
-  padding: 40px 20px; /* Reduced padding */
+  padding: 40px 20px;
   position: relative;
-  margin-bottom: 10px; /* Reduce gap between sections */
+  margin-bottom: 0; /* Remove gap between sections */
 }
 
 .background-image {
@@ -150,72 +153,83 @@ nav ul li a {
   margin-bottom: 20px;
   position: relative;
   z-index: 1;
-  border-radius: 2px; /* Optional: Add rounded corners for a smoother look */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+  border-radius: 2px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* About section */
+.about-section {
+	background: #3e4a57;
+  	color: white;
+  	padding: 40px 20px; /* Reduce padding */
+  	text-align: center;
+  	margin-bottom: 0; /* Remove gap between sections */
+	font-weight: 200;
+}
+
+/* Tree Wolf section */
+.tree-wolf-section {
+	background: #white;
+  	color: white;
+  	padding: 40px 20px; /* Reduce padding */
+  	text-align: center;
+  	margin-bottom: 0; /* Remove gap between sections */
+	font-weight: 200;
+}
+
+
+/* Pattern section */
+.pattern-section {
+  background: white;
+  text-align: center;
+  padding: 40px 20px; /* Reduce padding */
+  position: relative;
+  margin-bottom: 0; /* Remove gap between sections */
 }
 
 .pattern-image {
   display: block;
-  margin: 0 auto; /* Center the image horizontally */
-  width: 100%; /* Adjust width as needed */
-  max-width: 500px; /* Control the maximum width */
-  height: auto; /* Maintain aspect ratio */
-}
-
-
-.about-section {
-  background-color: #1C3344; /* Change to the desired background color */
-  color: white; /* Change text color to white */
-  padding: 60px 20px;
-  text-align: center;
-}
-
-#hero h2 {
-  font-size: 1.75em;
-  font-weight: 200;
-  margin: 0;
-  color: #2e3a47;
+  margin: 0 auto;
+  width: 100%;
   max-width: 500px;
+  height: auto;
 }
 
-h4 {
-  font-size: 1.5em;
-  font-weight: 200;
-  margin: 0;
-  color:  #2e3a47;
-}
-
-#hero p {
-  font-size: 1.5em;
-  color: #2e3a47;
-}
-
-section {
-  padding: 60px 20px;
-  text-align: center;
+/* Characters section */
+#characters {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  margin-bottom: 0; /* Remove gap between sections */
 }
 
 #characters .character {
-  display: inline-block;
-  width: 200px;
-  margin: 10px;
   text-align: center;
 }
 
 #characters .character img {
   width: 100%;
   height: auto;
-  border-radius: 0; /* Removed rounded corners */
+  border-radius: 0;
 }
 
 #characters .character h3 {
-  font-size: 2em; /* Increase font size */
+  font-size: 2em;
   margin: 10px 0 5px 0;
 }
 
+#characters .character h4 {
+  font-size: 1.5em;
+  margin: 5px 0 0 0;
+  color: #12010B;
+}
+
+/* Subscribe section */
 #subscribe {
   padding: 20px 20px; /* Adjusted padding */
   text-align: center;
+  margin-bottom: 0; /* Remove gap between sections */
 }
 
 #subscribe button {
@@ -223,13 +237,13 @@ section {
   color: black;
   border: none;
   padding: 10px 30px;
-  margin-top: -20px; /* Negative margin to reduce gap */
   font-size: 1.5em;
   cursor: pointer;
   border-radius: 2px;
   font-family: 'Jim Nightshade', cursive;
 }
 
+/* Footer */
 footer {
   background-color: #1C1C1C;
   color: #FFFFFF;
@@ -263,4 +277,31 @@ p {
     font-size: 5em; /* Even larger size for very wide screens */
   }
 }
+
+/* Responsive Design */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 2.5em;
+  }
+  h2 {
+    font-size: 1.75em;
+  }
+  h3 {
+    font-size: 1.25em;
+  }
+  .character {
+    width: 100%;
+    margin: 10px 0;
+  }
+  .background-image {
+    width: 100%;
+    max-width: none;
+  }
+  .pattern-image {
+    width: 100%;
+    max-width: none;
+  }
+}
+
+
 </style>
