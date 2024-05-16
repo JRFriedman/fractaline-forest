@@ -10,12 +10,12 @@ import Layout from '../layouts/Layout.astro';
 
     <section id="hero">
       <img src="/images/Cover-Image.png" alt="Fractaline Forest Cover" class="background-image">
+	  <section id="subscribe">
+		<button>Subscribe Now</button>
+	  </section>
+	  <h4>Get unlimited access to all Fractaline Forest experiences, monthly airdrops, and behind-the-scenes discussions</h4>
     </section>
 
-	<section id="subscribe">
-		<button>Subscribe Now</button>
-		<p>Get unlimited access to all Fractaline Forest experiences, monthly airdrops, and behind-the-scenes discussions</p>
-	  </section>
 
 	  <img src="/images/Fractaline-Pattern.png" alt="Fractaline-Pattern-Image" class="pattern-image">
 
@@ -55,39 +55,62 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
-  body {
-    font-family: 'Jim Nightshade', cursive;
-    background-color: #FFFFFF;
-    color: #12010B;
-  }
+@import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
 
-  header {
-    background-color: #12010B;
-    color: #2e3a47;
-    text-align: center;
-    padding: 20px 0;
-  }
+body {
+  font-family: 'Jim Nightshade', cursive;
+  background-color: #FFFFFF;
+  color: #12010B;
+}
 
-  header h1 {
-    margin: 0;
-    font-size: 50px;
-	text-align: center;
-	align-items: center;
-	vertical-align: center;
-  }
+header {
+  background-color: #12010B;
+  color: #2e3a47;
+  text-align: center;
+  padding: 20px 0;
+}
 
-  h1.cursive, h2.cursive {
-    font-family: 'Jim Nightshade', cursive;
-	text-align: center;
-  }
+header h1 {
+  margin: 0;
+  font-size: 3em; /* Default size */
+  text-align: center;
+  align-items: center;
+  vertical-align: center;
+}
 
-  p {
-  font-family: 'Jim Nightshade', cursive; /* Apply font family */
-  font-size: 1.5em; /* Adjust font size */
-  line-height: 1.5; /* Adjust line height for better readability */
-  margin-bottom: 1em; /* Add space below paragraphs */
-  color: #12010B; /* Set text color */
-  text-align: center; /* Center text */
+h1.cursive, h2.cursive {
+  font-family: 'Jim Nightshade', cursive;
+  text-align: center;
+}
+
+nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  margin: 5px 0 0 0;
+}
+
+nav ul li {
+  margin: 0 15px;
+}
+
+nav ul li a {
+  color: #FFFFFF;
+  text-decoration: none;
+  font-size: 1.2em;
+}
+
+#hero {
+  background: linear-gradient(
+    to bottom,
+    #FFFFFF, /* Darker shade from the image */
+    #3e4a57 /* Lighter shade from the image */
+  );
+  text-align: center;
+  padding: 40px 20px; /* Reduced padding */
+  position: relative;
+  margin-bottom: 10px; /* Reduce gap between sections */
 }
 
 .background-image {
@@ -95,41 +118,45 @@ import Layout from '../layouts/Layout.astro';
   height: auto;
   max-width: 700px;
   margin-top: 10px;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   position: relative;
   z-index: 1;
   border-radius: 2px; /* Optional: Add rounded corners for a smoother look */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
 }
 
-.pattern-image {
-  width: 100%;
-  height: auto;
-  max-width: 700px;
-  margin: 10px auto; /* Center the image horizontally and add vertical margins */
-  position: relative;
-  z-index: 1;
-  border-radius: 2px; /* Optional: Add rounded corners for a smoother look */
-  display: block; /* Ensure the image is treated as a block element */
+.middle-frame-image {
+  display: block;
+  margin: 0 auto; /* Center the image horizontally */
+  width: 100%; /* Adjust width as needed */
+  max-width: 500px; /* Control the maximum width */
+  height: auto; /* Maintain aspect ratio */
 }
 
-  #hero h2 {
-    font-size: 3em;
-    margin: 0;
-    color:#2e3a47;;
-  }
+#hero h2 {
+  font-size: 1.75em;
+  margin: 0;
+  color: #2e3a47;
+}
 
-  #hero p {
-    font-size: 1.5em;
-    color:#2e3a47;
-  }
+#hero h4 {
+  font-size: 1.75em;
+  font-weight: 200;
+  margin: 0;
+  color: white;
+}
 
-  section {
-    padding: 20px 0px;
-    text-align: center;
-  }
+#hero p {
+  font-size: 1.5em;
+  color: #2e3a47;
+}
 
-  #characters .character {
+section {
+  padding: 60px 20px;
+  text-align: center;
+}
+
+#characters .character {
   display: inline-block;
   width: 200px;
   margin: 20px;
@@ -143,32 +170,58 @@ import Layout from '../layouts/Layout.astro';
 }
 
 #characters .character h3 {
-	font-size: 1.75em;
-	margin: 10px 0 5px 0;
+  font-size: 1.5em; /* Increase font size */
+  margin: 10px 0 5px 0;
 }
 
+#subscribe {
+  padding: 20px 20px; /* Adjusted padding */
+  text-align: center;
+}
 
-  #subscribe button {
-    background-color: #1C1C1C;
-    color: #FFFFFF;
-    border: none;
-    padding: 12px 30px;
-	margin-top: 0px; /* Negative margin to reduce gap */
-    font-size: 1.5em;
-    cursor: pointer;
-    border-radius: 5px;
-	vertical-align: center;
-	font-family: 'Jim Nightshade', cursive;
-  }
+#subscribe button {
+  background-color: white;
+  color: black;
+  border: none;
+  padding: 10px 30px;
+  margin-top: -20px; /* Negative margin to reduce gap */
+  font-size: 1.5em;
+  cursor: pointer;
+  border-radius: 2px;
+  font-family: 'Jim Nightshade', cursive;
+}
 
-  footer {
-    background-color: #1C1C1C;
-    color: #E9E9DD;
-    text-align: center;
-    padding: 20px 0;
-  }
+footer {
+  background-color: #1C1C1C;
+  color: #E9E9DD;
+  text-align: center;
+  padding: 20px 0;
+}
 
-  footer p {
-    margin: 0;
+footer p {
+  margin: 0;
+}
+
+/* New CSS rule for <p> elements */
+p {
+  font-family: 'Jim Nightshade', cursive; /* Apply font family */
+  font-size: 1.5em; /* Adjust font size */
+  line-height: 1.5; /* Adjust line height for better readability */
+  margin-bottom: 1em; /* Add space below paragraphs */
+  color: white; /* Set text color */
+  text-align: center; /* Center text */
+}
+
+/* Responsive font sizes for h1 */
+@media (min-width: 600px) {
+  header h1 {
+    font-size: 4em; /* Larger size for wider screens */
   }
+}
+
+@media (min-width: 900px) {
+  header h1 {
+    font-size: 5em; /* Even larger size for very wide screens */
+  }
+}
 </style>
