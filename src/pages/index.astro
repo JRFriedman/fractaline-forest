@@ -27,6 +27,7 @@ import Layout from '../layouts/Layout.astro';
     </section>
 
     <h1 class="cursive">❖ The Guides ❖</h1>
+
     <section id="characters">
       <div class="character">
         <h3>Vector</h3>
@@ -161,10 +162,8 @@ nav ul li a {
 .about-section {
   background: #3e4a57;
   color: white;
-  padding-top: 60px; /* Increase top padding */
-  padding-bottom: 80px; /* Increase bottom padding */
-  padding-left: 40px; /* Left padding */
-  padding-right: 40px; /* Right padding */
+  padding-top: 180px; /* Increase top padding */
+  padding-bottom: 180px; /* Increase bottom padding */
   margin: 30px auto; /* Add top and bottom margin */
   text-align: center;
   font-weight: 200;
@@ -213,7 +212,8 @@ nav ul li a {
 .pattern-section {
   background: white;
   text-align: center;
-  padding: 40px 20px;
+  padding-top: 180px; /* Increase top padding */
+  padding-bottom: 180px; /* Increase bottom padding */
   position: relative;
   margin-bottom: 0;
 }
@@ -230,8 +230,8 @@ nav ul li a {
 #characters {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 20px;
-  padding: 20px;
+  gap: 20px; /* Adjust gap between character divs */
+  padding: 20px; /* Add padding around the characters section */
   margin-bottom: 0;
 }
 
@@ -247,7 +247,7 @@ nav ul li a {
 
 #characters .character h3 {
   font-size: 2em;
-  margin: 10px 0 5px 0;
+  margin: 5px 0; /* Reduce margin to pin elements closer together */
 }
 
 #characters .character h4 {
