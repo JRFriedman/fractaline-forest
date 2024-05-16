@@ -1,0 +1,156 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+
+<Layout title="Fractaline Forest">
+  <main>
+    <h1 class="cursive">❖ Fractaline Forest ❖</h1>
+	<h2 class="cursive">Unite the forest and discover your true path.</h2>
+
+    <section id="hero">
+      <img src="/images/Cover-Image.png" alt="Fractaline Forest Cover" class="background-image">
+    </section>
+
+	<section id="subscribe">
+		<button>Subscribe Now</button>
+		<p>Get unlimited access to all Fractaline Forest experiences, monthly airdrops, and behind-the-scenes discussions</p>
+	  </section>
+
+    <section id="about">
+      <h2 class="cursive">About Fractaline Forest</h2>
+      <p>Fractaline Forest is an interactive story based on Farcaster. Players work together to unite the forest.</p>
+    </section>
+
+    <section id="characters">
+      <h2 class="cursive">Meet the Main Characters</h2>
+      <div class="character">
+        <img src="/images/vector.png" alt="Vector">
+        <h3>Vector</h3>
+        <p>The adventurous wolf and forest guide.</p>
+      </div>
+      <div class="character">
+        <img src="images/thorn.png" alt="Thorn">
+        <h3>Thorn</h3>
+        <p>The solemn guardian of the forest.</p>
+      </div>
+      <div class="character">
+        <img src="/images/sylvan.png" alt="Sylvan">
+        <h3>Sylvan</h3>
+        <p>The oracle who remembers your path.</p>
+      </div>
+      <div class="character">
+        <img src="/images/oran.png" alt="Oran">
+        <h3>Oran</h3>
+        <p>The wise keeper of wisdom and rituals.</p>
+      </div>
+    </section>
+
+
+    <section id="subscribe">
+      <h2 class="cursive">Subscribe</h2>
+      <p>Get unlimited access to all Fractaline Forest user experiences, monthly airdrops, and more.</p>
+      <button>Subscribe Now</button>
+    </section>
+
+    <footer>
+      <p>&copy; 2024 Fractaline Forest. All rights reserved.</p>
+    </footer>
+  </main>
+</Layout>
+
+<style>
+  body {
+    font-family: 'Jim Nightshade', cursive;
+    background-color: #FFFFFF;
+    color: #12010B;
+  }
+
+  header {
+    background-color: #12010B;
+    color: #2e3a47;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  header h1 {
+    margin: 0;
+    font-size: 3.5em;
+	text-align: center;
+	align-items: center;
+	vertical-align: center;
+  }
+
+  h1.cursive, h2.cursive {
+    font-family: 'Jim Nightshade', cursive;
+	text-align: center;
+  }
+
+.background-image {
+  width: 100%;
+  height: auto;
+  max-width: 700px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  position: relative;
+  z-index: 1;
+  border-radius: 2px; /* Optional: Add rounded corners for a smoother look */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow */
+}
+
+  #hero h2 {
+    font-size: 1.75em;
+    margin: 0;
+    color:#2e3a47;;
+  }
+
+  #hero p {
+    font-size: 1.5em;
+    color:#2e3a47;
+  }
+
+  section {
+    padding: 20px 0px;
+    text-align: center;
+  }
+
+  #characters .character {
+  display: inline-block;
+  width: 200px;
+  margin: 20px;
+  text-align: center;
+}
+
+#characters .character img {
+  width: 100%;
+  height: auto;
+  border-radius: 0; /* Removed rounded corners */
+}
+
+#characters .character h3 {
+  margin: 10px 0 5px 0;
+}
+
+
+  #subscribe button {
+    background-color: #1C1C1C;
+    color: #FFFFFF;
+    border: none;
+    padding: 15px 20px;
+	margin-top: 0px; /* Negative margin to reduce gap */
+    font-size: 1.2em;
+    cursor: pointer;
+    border-radius: 5px;
+	font-family: 'Jim Nightshade', cursive;
+  }
+
+  footer {
+    background-color: #1C1C1C;
+    color: #E9E9DD;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+  footer p {
+    margin: 0;
+  }
+</style>
