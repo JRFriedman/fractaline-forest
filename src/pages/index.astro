@@ -17,21 +17,20 @@ import Layout from '../layouts/Layout.astro';
       <h4>Get access to the story as it develops, monthly airdrops, and behind-the-scenes discussions</h4>
     </section>
 
-	<section class="pattern-section">
-		<img src="/images/Fractaline-Pattern.png" alt="Fractaline Forest Pattern" class="pattern-image">
-	  </section> 
+    <section class="pattern-section">
+      <img src="/images/Fractaline-Pattern.png" alt="Fractaline Forest Pattern" class="pattern-image">
+    </section> 
 
     <section class="about-section">
       <h1 class="cursive">❖ About ❖</h1>
       <h2 class="cursive">Fractaline Forest is an intricate allegory that weaves together philosophical inquiry and social network experiences to create an immersive, interactive narrative. The forest itself represents the complex web of social consciousness and the quest for unity and understanding. At the heart of this narrative are four archetypal characters, each embodying distinct aspects of the human experience and guiding the player towards self-discovery and collective harmony.</h2>
     </section>
 
-	<section class="tree-wolf-section">
-		<img src="/images/Tree-Wolf.png" alt="Tree Wolf" class="tree-wolf-image">
-	  </section> 
+    <section class="tree-wolf-section">
+      <img src="/images/Tree-Wolf.png" alt="Tree Wolf" class="tree-wolf-image">
+    </section> 
 
-    
-	<h1 class="cursive">❖ Meet the Main Characters ❖</h1>
+    <h1 class="cursive">❖ Meet the Main Characters ❖</h1>
     <section id="characters">
       <div class="character">
         <img src="/images/vector.png" alt="Vector">
@@ -55,7 +54,7 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section> 
 
-	<h1 class="cursive">❖ Come Explore the Forest ❖</h1>
+    <h1 class="cursive">❖ Come Explore the Forest ❖</h1>
 
     <footer>
       <p>&copy; 2024 Fractaline Forest. All rights reserved.</p>
@@ -63,6 +62,7 @@ import Layout from '../layouts/Layout.astro';
 
   </main>
 </Layout>
+
 
 <style>
 
@@ -75,7 +75,7 @@ body {
   color: #12010B;
   margin: 0;
   padding: 0;
-  max-width: 100%;
+  width: 100%;
   overflow-x: hidden;
 }
 
@@ -86,30 +86,34 @@ h1.cursive, h2.cursive {
 
 h1 {
   font-size: 3em;
+  width: 80%;
+  max-width: 700px;
   margin: 35px auto;
-  width: 100%;
 }
 
 h2 {
   font-size: 2em;
+  width: 80%;
+  max-width: 700px;
   margin: 0 auto;
-  width: 100%;
 }
 
 h3 {
   font-size: 1.5em;
   font-weight: 300;
+  width: 100%;
+  max-width: 700px;
   margin: 0 auto;
   color: #12010B;
-  width: 100%;
 }
 
 h4 {
   font-size: 1.5em;
   font-weight: 300;
+  width: 100%;
+  max-width: 700px;
   margin: 0 auto;
   color: white;
-  width: 100%;
 }
 
 nav ul {
@@ -118,7 +122,6 @@ nav ul {
   display: flex;
   justify-content: center;
   margin: 5px 0 0 0;
-  width: 100%;
 }
 
 nav ul li {
@@ -142,10 +145,10 @@ nav ul li a {
   padding: 40px 20px;
   position: relative;
   margin-bottom: 0;
-  width: 100%;
 }
 
 .background-image {
+  width: 100%;
   height: auto;
   max-width: 700px;
   margin-top: 10px;
@@ -164,7 +167,6 @@ nav ul li a {
   text-align: center;
   margin-bottom: 0;
   font-weight: 200;
-  width: 100%;
 }
 
 /* Tree Wolf section */
@@ -179,6 +181,16 @@ nav ul li a {
 
 /* Forest Path section */
 .forest-path-section {
+  background: #FFFFFF;
+  color: #12010B;
+  padding: 40px 20px;
+  text-align: center;
+  margin-bottom: 0;
+  font-weight: 200;
+}
+
+/* Frame Path section */
+.frame-path-section {
   background: #FFFFFF;
   color: #12010B;
   padding: 40px 20px;
@@ -302,7 +314,7 @@ p {
   }
 }
 
-@media (max-width: 900px) {
+@media (max-width: 600px) {
   body, html {
     width: 100%;
   }
@@ -317,7 +329,6 @@ p {
     grid-template-columns: 1fr;
   }
 }
-
 
 
 </style>
