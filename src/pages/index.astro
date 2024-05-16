@@ -14,13 +14,15 @@ import Layout from '../layouts/Layout.astro';
       <div id="subscribe">
         <button>Subscribe Now</button>
       </div>
-      <h4>Get unlimited access to all experiences, monthly airdrops, and behind-the-scenes discussions</h4>
+      <h3>Get access to the story as it develops, monthly airdrops, and behind-the-scenes discussions</h3>
     </section>
 
-    <h1 class="cursive">❖ About ❖</h1>
-    <h2 class="cursive">Fractaline Forest is an intricate allegory that weaves together philosophical inquiry and science-fiction to create an immersive interactive narrative. The forest itself represents the complex web of social consciousness and the quest for unity and understanding. At the heart of this narrative are four archetypal characters, each embodying distinct aspects of the human experience and guiding the player towards self-discovery and collective harmony.</h2>
-
-    <section class="pattern-section">
+	<section class="about-section">
+		<h1 class="cursive">❖ About ❖</h1>
+		<h2 class="cursive">Fractaline Forest is an intricate allegory that weaves together philosophical inquiry and science-fiction to create an immersive, interactive narrative. The forest itself represents the complex web of social consciousness and the quest for unity and understanding. At the heart of this narrative are four archetypal characters, each embodying distinct aspects of the human experience and guiding the player towards self-discovery and collective harmony.</h2>
+	  </section>
+    
+	<section class="pattern-section">
 		<img src="/images/Fractaline-Pattern.png" alt="Fractaline Forest Pattern" class="pattern-image">
 	  </section>
 
@@ -101,6 +103,15 @@ h2 {
 	margin: 0 auto; /* Center the h2 */
 }
 
+h3 {
+	font-size: 1.5em;
+	font-weight: 300;
+	width: 100%; /* Make the h2 narrower */
+	max-width: 700px; /* Optional: Set a max-width */
+	margin: 0 auto; /* Center the h2 */
+	color: white;
+}
+
 nav ul {
   list-style: none;
   padding: 0;
@@ -149,6 +160,14 @@ nav ul li a {
   width: 100%; /* Adjust width as needed */
   max-width: 500px; /* Control the maximum width */
   height: auto; /* Maintain aspect ratio */
+}
+
+
+.about-section {
+  background-color: #1C3344; /* Change to the desired background color */
+  color: white; /* Change text color to white */
+  padding: 60px 20px;
+  text-align: center;
 }
 
 #hero h2 {
