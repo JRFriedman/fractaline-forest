@@ -3,21 +3,22 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Fractaline Forest">
-	<link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet">
   <main>
     <h1 class="cursive">❖ Fractaline Forest ❖</h1>
-	<h2 class="cursive">An interactive story based on Farcaster.</h2>
+    <h2 class="cursive">An interactive story based on Farcaster.</h2>
 
     <section id="hero">
       <img src="/images/Cover-Image.png" alt="Fractaline Forest Cover" class="background-image">
-	  <section id="subscribe">
-		<button>Subscribe Now</button>
-	  </section>
-	  <h4>Get unlimited access to all experiences, monthly airdrops, and behind-the-scenes discussions</h4>
+      <section id="subscribe">
+        <button>Subscribe Now</button>
+      </section>
+      <h4>Get unlimited access to all experiences, monthly airdrops, and behind-the-scenes discussions</h4>
     </section>
 
-
-	  <img src="/images/Fractaline-Pattern.png" alt="Fractaline-Pattern-Image" class="pattern-image">
+    <section class="pattern-section">
+      <img src="/images/Fractaline-Pattern.png" alt="Fractaline Forest Pattern" class="pattern-image">
+    </section>
 
     <section id="characters">
       <h2 class="cursive">Meet the Main Characters</h2>
@@ -43,7 +44,6 @@ import Layout from '../layouts/Layout.astro';
       </div>
     </section>
 
-
     <section id="subscribe">
       <button>Subscribe Now</button>
     </section>
@@ -53,6 +53,7 @@ import Layout from '../layouts/Layout.astro';
     </footer>
   </main>
 </Layout>
+
 
 <style>
 @import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
@@ -104,8 +105,8 @@ nav ul li a {
 #hero {
   background: linear-gradient(
     to bottom,
-    #FFFFFF, /* Darker shade from the image */
-    #3e4a57 /* Lighter shade from the image */
+    #FFFFFF, /* Lighter shade from the image */
+    #3e4a57 /* Darker shade from the image */
   );
   text-align: center;
   padding: 40px 20px; /* Reduced padding */
@@ -132,6 +133,7 @@ nav ul li a {
   max-width: 500px; /* Control the maximum width */
   height: auto; /* Maintain aspect ratio */
 }
+
 
 #hero h2 {
   font-size: 1.75em;
