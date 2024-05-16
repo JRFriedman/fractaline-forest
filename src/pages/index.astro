@@ -69,6 +69,7 @@ import Layout from '../layouts/Layout.astro';
 </Layout>
 
 <style>
+
 @import url('https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap');
 
 /* General styles */
@@ -192,7 +193,7 @@ nav ul li a {
   font-weight: 200;
 }
 
-/* Forest Path section */
+/* Frame Path section */
 .frame-path-section {
   background: #FFFFFF;
   color: #12010B;
@@ -289,19 +290,6 @@ p {
   text-align: center;
 }
 
-/* Responsive font sizes for h1 */
-@media (min-width: 600px) {
-  header h1 {
-    font-size: 4em;
-  }
-}
-
-@media (min-width: 900px) {
-  header h1 {
-    font-size: 5em;
-  }
-}
-
 /* Responsive Design */
 @media (max-width: 900px) {
   h1 {
@@ -327,6 +315,22 @@ p {
   }
   section, .about-section, .pattern-section {
     padding: 20px;
+  }
+}
+
+@media (max-width: 600px) {
+  body, html {
+    width: 100%;
+  }
+  h1, h2, h3, h4, p, section, .about-section, .pattern-section, .tree-wolf-section, .frame-path-section {
+    padding: 20px;
+    margin: 0 auto;
+    box-sizing: border-box;
+    width: 100%;
+    text-align: center;
+  }
+  #characters {
+    grid-template-columns: 1fr;
   }
 }
 
