@@ -268,6 +268,43 @@ input:checked + .slider:before {
   transform: scale(1.1);
 }
 
+@media screen and (max-width: 600px) {
+  body {
+    font-size: 20px; /* Decrease font size for better readability on small screens */
+  }
+
+  .container {
+    margin-bottom: 10px; /* Reduce margin for better spacing on small screens */
+  }
+
+  h1 {
+    font-size: 40px; /* Decrease heading font size for better fit on small screens */
+    margin-top: 10px; /* Reduce top margin for better spacing */
+  }
+
+  .image-container {
+    width: 90%; /* Adjust width to fit better on small screens */
+  }
+
+  .cast-text {
+    width: 90%; /* Adjust width for better fit on small screens */
+    max-width: none; /* Remove max-width restriction */
+  }
+
+  #refreshButton {
+    font-size: 20px; /* Adjust font size for better visibility */
+    width: 100px; /* Adjust button width for better fit on small screens */
+    height: 40px; /* Adjust button height for better fit on small screens */
+    margin-bottom: 20px; /* Adjust bottom margin for better spacing */
+  }
+
+  #homeButton {
+    width: 100px; /* Adjust button width for better fit on small screens */
+    height: 40px; /* Adjust button height for better fit on small screens */
+    font-size: 16px; /* Decrease font size for better visibility */
+  }
+}
+
 
   </style>
 </head>
