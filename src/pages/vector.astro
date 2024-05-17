@@ -270,41 +270,37 @@ input:checked + .slider:before {
 
 @media screen and (max-width: 600px) {
   body {
-    font-size: 20px; /* Decrease font size for better readability on small screens */
+    font-size: 16px; /* Decrease font size for better readability on small screens */
   }
 
   .container {
     margin-bottom: 10px; /* Reduce margin for better spacing on small screens */
+    text-align: center; /* Center align content */
   }
 
   h1 {
-    font-size: 40px; /* Decrease heading font size for better fit on small screens */
+    font-size: 50px; /* Increase heading font size for better fit on small screens */
     margin-top: 10px; /* Reduce top margin for better spacing */
   }
 
   .image-container {
-    width: 90%; /* Adjust width to fit better on small screens */
+    width: 80%; /* Adjust width to fit better on small screens */
+    margin: 0 auto; /* Center align image container */
+  }
+
+  img {
+    max-width: 100%; /* Ensure image does not exceed container width */
+    height: auto; /* Maintain aspect ratio */
   }
 
   .cast-text {
     width: 90%; /* Adjust width for better fit on small screens */
     max-width: none; /* Remove max-width restriction */
-  }
-
-  #refreshButton {
-    font-size: 20px; /* Adjust font size for better visibility */
-    width: 100px; /* Adjust button width for better fit on small screens */
-    height: 40px; /* Adjust button height for better fit on small screens */
-    margin-bottom: 20px; /* Adjust bottom margin for better spacing */
-  }
-
-  #homeButton {
-    width: 100px; /* Adjust button width for better fit on small screens */
-    height: 40px; /* Adjust button height for better fit on small screens */
-    font-size: 16px; /* Decrease font size for better visibility */
+    font-size: 24px; /* Increase font size for better readability */
+    text-align: center; /* Center align text */
+    margin: 0 auto; /* Center align cast text */
   }
 }
-
 
   </style>
 </head>
