@@ -26,7 +26,7 @@ import Layout from '../layouts/Layout.astro';
       <h2 class="cursive">Fractaline Forest is an intricate allegory that weaves together philosophical inquiry and social network experiences to create an immersive, interactive narrative. The forest itself represents the complex web of social consciousness and the quest for unity and understanding. At the heart of this narrative are four archetypal characters, each embodying distinct aspects of the human experience and guiding the forest towards self-discovery and collective harmony.</h2>
     </section>
 
-    <h1 class="cursive">❖ The Guides ❖</h1>
+    <h1 class="cursive section-title">❖ The Guides ❖</h1>
 
     <section id="characters">
       <div class="character">
@@ -45,14 +45,15 @@ import Layout from '../layouts/Layout.astro';
         <h3>Oran</h3>
         <img src="/images/oran.png" alt="Oran">
       </div>
-    </section> 
+    </section>
+    
 
-    <h1 class="cursive">❖ Come Explore ❖</h1>
 
     <section class="tree-wolf-section">
       <img src="/images/Tree-Wolf.png" alt="Tree Wolf" class="tree-wolf-image">
     </section> 
 
+    <h1 class="cursive">❖ Only For the Brave ❖</h1>
 
     <footer>
       <p>&copy; 2024 Fractaline Forest. All rights reserved.</p>
@@ -112,6 +113,11 @@ h4 {
   max-width: 700px;
   margin: 0 auto;
   color: white;
+}
+
+/* Custom class for specific padding */
+.section-title {
+  padding-top: 40px; /* Add desired padding above this specific h1 */
 }
 
 nav ul {
@@ -276,7 +282,7 @@ nav ul li a {
 
 /* Footer */
 footer {
-  background-color: #1C1C1C;
+  background-color: #3e4a57;
   color: #FFFFFF;
   text-align: center;
   padding: 20px 0;
@@ -339,6 +345,5 @@ p {
     grid-template-columns: 1fr;
   }
 }
-
 
 </style>
