@@ -1,0 +1,342 @@
+---
+import { sendRequestToOpenAI } from "../api.js";
+
+// Define the types for the API responses
+type Cast = {
+  text: string;
+};
+
+type NeynarResponse = {
+  result: {
+    casts: Cast[];
+  };
+};
+
+type OpenAIResponse = {
+  choices: {
+    text: string;
+  }[];
+};
+
+// Async function to fetch data
+const fetchData = async (): Promise<{ casts: Cast[]; firstChoiceText: string }> => {
+  const NEYNAR_API_KEY = import.meta.env.NEYNAR_API_KEY;
+  const URL = "https://api.neynar.com/v1/farcaster/casts?fid=${fid}&limit=6";
+  const headersX = {
+    accept: "application/json",
+    api_key: NEYNAR_API_KEY,
+  };
+
+  try {
+    const responseNeynar = await fetch(URL, { headers: headersX });
+    const dataNeynar: NeynarResponse | null = await responseNeynar.json();
+    const casts = dataNeynar?.result?.casts || [];
+    console.log("Neynar data:", dataNeynar); // Log the response from Neynar
+
+    const allCastsText = casts.map((cast) => cast.text).join(" ");
+
+    const openAIResponse: OpenAIResponse | null = await sendRequestToOpenAI(
+      `You are Vector, the wolf guide, who knows the soul of each traveler. Craft a brief welcoming question that hints at the inner world of the new arrival, beginning with 'Welcome, traveler'. Keep your message under 18 words, and refer to at least one of the thoughts in: ${allCastsText}.`
+    );
+
+    let firstChoiceText = "";
+    if (openAIResponse?.choices?.[0]?.text) {
+      const fullText = openAIResponse.choices[0].text;
+      const textParts = fullText.split("\n\nWelcome, traveler");
+
+      if (textParts.length > 1) {
+        firstChoiceText = "Welcome, traveler" + textParts[1].trim();
+      } else {
+        console.error("Separator not found in text");
+        firstChoiceText = fullText.trim();
+      }
+    } else {
+      console.error("No response or empty choices array from OpenAI");
+    }
+
+    return { casts, firstChoiceText };
+  } catch (error) {
+    console.error("Error fetching data:", error);
+    return { casts: [], firstChoiceText: "" };
+  }
+};
+
+// Fetch data
+const { casts, firstChoiceText } = await fetchData();
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <meta name="viewport" content="width=device-width" />
+  <meta name="generator" content={Astro.generator} />
+  <title>Fractaline Forest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Jim+Nightshade&display=swap" rel="stylesheet" />
+  <style>
+   body {
+  text-align: center;
+  font-family: "Jim Nightshade", cursive;
+  color: #36454f;
+  font-size: 30px;
+  font-weight: medium;
+  font-style: normal;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.container {
+  position: relative;
+  margin-bottom: 20px;
+}
+
+h1 {
+  margin-top: 20px;
+  font-family: "Jim Nightshade";
+  color: black;
+  font-size: 60px;
+  text-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-bottom: 10px;
+}
+
+.image-container {
+  position: relative;
+  width: 100%;
+  margin-left: auto; /* Center the image container horizontally */
+  margin-right: auto; /* Center the image container horizontally */
+  z-index: 1; /* Ensure the image container is above other elements */
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+
+.cast-text {
+  position: absolute;
+  top: 45%; /* Adjust the vertical positioning */
+  left: 50%; /* Keep it centered horizontally */
+  transform: translate(-50%, -50%);
+  color: black;
+  background-color: rgba(0, 0, 0, 0.5);
+  padding: 15px;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 600px;
+}
+
+
+.hidden {
+  display: none;
+}
+
+.narrow-container {
+  width: 90%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.wide-container {
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+#castsView h2 {
+  font-size: 18px !important;
+  margin-bottom: 5px;
+}
+
+#openAIView {
+  font-style: italic;
+}
+
+.switch {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 80px;
+  height: 34px;
+  background-color: #ccc;
+  border-radius: 17px;
+  box-shadow: inset 0 2px 15px rgba(0, 0, 0, 0.1), 0 2px 5px rgba(0, 0, 0, 0.4);
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: transparent;
+  transition: 0.4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 24px;
+  width: 24px;
+  left: 4px;
+  bottom: 5px;
+  background-color: white;
+  transition: 0.4s;
+  border-radius: 50%;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+input:checked + .slider {
+  background-color: #8963d2;
+}
+
+input:checked + .slider:before {
+  transform: translateX(46px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+#refreshButton {
+  position: absolute;
+  bottom: 10px; /* Adjust the initial position from the bottom */
+  left: 50%; /* Adjust the horizontal position */
+  transform: translateX(-50%);
+  background: #FFFFFF; /* Fill color */
+  border: 10px solid #FFFFFF; /* Add a 10px border */
+  width: 120px; /* Set the width */
+  height: 50px; /* Set the height */
+  color: #36454f; /* Text color */
+  cursor: pointer;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  transition: bottom 0.4s ease-in-out; /* Only transition the bottom property */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 30px;
+  border-radius: 0; /* No border radius */
+  margin-bottom: 37px;
+  z-index: 0; /* Ensure the button is below other elements */
+}
+
+#refreshButton:hover {
+  bottom: 12px; /* Adjust the upward movement */
+}
+
+
+#homeButton {
+  position: fixed;
+  top: 20px;
+  left: 20px;
+  background: white;
+  border: #36454f;
+  border-width: 1px;
+  border-radius: 50%;
+  width: 70px; /* Adjust width to fit the text */
+  height: 35px;
+  color: #36454f; /* Change text color */
+  cursor: pointer;
+  text-shadow: 0px 1px 2px rgba(0, 0, 0, 0.25);
+  transition: transform 0.4s ease-in-out;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px; /* Adjust font size */
+  font-family: "Jim Nightshade", cursive;
+}
+
+#homeButton:hover {
+  transform: scale(1.1);
+}
+
+
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <h1>fractaline forest</h1>
+    <div class="image-container">
+      <img src="/images/Vector-Blank.png" alt="Vector">
+      <div class="overlay">
+        <div class="content-container narrow-container" id="contentContainer">
+          <div id="castsView" class="hidden">
+            {casts.map((cast, index) => (
+            <div class="cast-text">
+              <h2>{cast.text}</h2>
+              <hr />
+            </div>
+            ))}
+          </div>
+          <div id="openAIView">
+            {firstChoiceText && (
+            <div>
+              <p>{firstChoiceText}</p>
+            </div>
+            )}
+          </div>
+        </div>
+      </div>
+      <button id="refreshButton" onclick="window.location.reload()">❖</button>
+    </div>
+  </div>
+  
+
+  <button id="homeButton" onclick="window.location.href = '/'">Home</button>
+
+  <div class="content-container narrow-container" id="contentContainer">
+    <div id="castsView" class="hidden"></div>
+    <div id="openAIView"></div>
+
+    <script>
+      document.addEventListener('DOMContentLoaded', () => {
+        const toggleSwitch = document.getElementById("toggleView") as HTMLInputElement | null;
+        const castsView = document.getElementById("castsView");
+        const openAIView = document.getElementById("openAIView");
+        const contentContainer = document.getElementById("contentContainer");
+
+        if (toggleSwitch && castsView && openAIView && contentContainer) {
+          toggleSwitch.addEventListener("change", () => {
+            castsView.classList.toggle("hidden");
+            openAIView.classList.toggle("hidden");
+
+            if (toggleSwitch.checked) {
+              contentContainer.classList.remove("narrow-container");
+              contentContainer.classList.add("wide-container");
+            } else {
+              contentContainer.classList.remove("wide-container");
+              contentContainer.classList.add("narrow-container");
+            }
+          });
+        } else {
+          console.error("Toggle switch or containers not found");
+        }
+      });
+    </script>
+  </div>
+
+  <label class="switch">
+    <input type="checkbox" id="toggleView" />
+    <span class="slider round"></span>
+  </label>
+</body>
+</html>

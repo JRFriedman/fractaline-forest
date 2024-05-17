@@ -12,10 +12,15 @@ import Layout from '../layouts/Layout.astro';
     <section id="hero">
       <img src="/images/Cover-Image-Test.png" alt="Fractaline Forest Cover" class="background-image">
       <div id="subscribe">
-        <button>Support the Project</button>
+        <form id="supportForm">
+          <div class="input-wrapper">
+            <input type="number" id="supportAmount" placeholder="Enter FID and press the" required />
+            <button type="submit">❖</button>
+            <span class="error-message" id="error-message">Please fill out this field <span class="exclamation-icon">❗</span></span>
+          </div>
+        </form>
       </div>
-      <h4>Get access to the story as it develops, monthly airdrops, and behind-the-scenes discussions</h4>
-    </section>
+    </section>    
 
     <section class="pattern-section">
       <img src="/images/Fractaline-Pattern.png" alt="Fractaline Forest Pattern" class="pattern-image">
@@ -60,6 +65,40 @@ import Layout from '../layouts/Layout.astro';
     </footer>
 
   </main>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const supportForm = document.getElementById('supportForm');
+      const inputField = document.getElementById('supportAmount') as HTMLInputElement | null;
+      const errorMessage = document.getElementById('error-message');
+      
+      supportForm?.addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the form from submitting
+  
+        const value = inputField?.value;
+        if (!value) {
+          if (errorMessage) errorMessage.style.display = 'inline'; // Show the custom error message
+          inputField?.classList.add('input-error'); // Add error styling
+        } else {
+          const fid = parseInt(value, 10);
+          if (isNaN(fid)) {
+            if (errorMessage) errorMessage.style.display = 'inline'; // Show the custom error message
+            inputField?.classList.add('input-error'); // Add error styling
+          } else {
+            if (errorMessage) errorMessage.style.display = 'none'; // Hide the custom error message
+            console.log(`Redirecting to /vector?fid=${fid}`);
+            window.location.href = `/vector?fid=${fid}`; // Redirect with query parameter
+          }
+        }
+      });
+  
+      inputField?.addEventListener('input', function() {
+        if (errorMessage) errorMessage.style.display = 'none'; // Hide the custom error message when input changes
+        inputField?.classList.remove('input-error'); // Remove error styling
+      });
+    });
+  </script>
+
 </Layout>
 
 
@@ -147,7 +186,7 @@ nav ul li a {
   );
   text-align: center;
   padding: 40px 20px;
-  padding-bottom: 40px; /* Increase bottom padding */
+  padding-bottom: 120px; /* Increase bottom padding */
   position: relative;
   margin-bottom: 0;
 }
@@ -262,23 +301,74 @@ nav ul li a {
   color: #12010B;
 }
 
-/* Subscribe section */
-#subscribe {
-  padding: 20px 20px;
-  text-align: center;
-  margin-bottom: 0;
+
+/* Hide up and down arrows from number input */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
 }
 
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+
+/* Wrapper for input and button */
+.input-wrapper {
+  position: relative;
+  display: inline-block;
+}
+
+#subscribe input[type="number"] {
+  padding: 10px 40px 10px 20px; /* Adjust right padding to make space for the button */
+  font-size: 1.2em;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Jim Nightshade', cursive;
+  transition: border-color 0.3s ease; /* Smooth transition for border color */
+}
+
+/* Change border color on focus */
+#subscribe input[type="number"]:focus {
+  border-color: #3e4a57; /* Change to your desired color */
+  outline: none; /* Remove the default outline */
+}
+
+/* Style the submit button to be inside the input field */
 #subscribe button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
   background-color: white;
   color: black;
   border: none;
-  padding: 10px 30px;
+  padding: 0 15px;
   font-size: 1.6em;
   cursor: pointer;
   border-radius: 2px;
   font-family: 'Jim Nightshade', cursive;
 }
+
+#subscribe button:focus {
+  outline: none;
+}
+
+/* Error message styles */
+.error-message {
+  display: none;
+  color: green;
+  font-size: 0.9em;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  margin-top: 5px;
+}
+
+.exclamation-icon {
+  color: green;
+}
+
 
 /* Footer */
 footer {
