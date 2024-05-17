@@ -312,7 +312,7 @@ input:checked + .slider:before {
 
   <div class="container">
     <h1>fractaline forest</h1>
-    <div class="image-container">
+    <div class="image-container" onclick="window.location.reload()">
       <img src="/images/Vector-Blank.png" alt="Vector">
       <div class="overlay">
         <div class="content-container narrow-container" id="contentContainer">
@@ -333,12 +333,9 @@ input:checked + .slider:before {
           </div>
         </div>
       </div>
-      <button id="refreshButton" onclick="window.location.reload()">❖</button>
     </div>
   </div>
   
-
-  <button id="homeButton" onclick="window.location.href = '/'">Home</button>
 
   <div class="content-container narrow-container" id="contentContainer">
     <div id="castsView" class="hidden"></div>
